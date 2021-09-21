@@ -1,0 +1,18 @@
+{
+    "python.pythonPath": "D:\\softwares\\python-3\\python.exe",
+    "files.associations": {
+        "cctype": "c",
+        "cmath": "c",
+        "cstdarg": "c",
+        "cstdio": "c",
+        "cstdlib": "c",
+        "cwchar": "c",
+        "cwctype": "c",
+        "type_traits": "c",
+        "limits": "c",
+        "*.tcc": "c",
+        "cstdbool": "c",
+        "cstdint": "c",
+        "typeinfo": "c"
+    }
+}

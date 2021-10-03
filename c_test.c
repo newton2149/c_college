@@ -1,51 +1,102 @@
-#include <stdio.h>
+// Aim: To multiply two matrices
+// Algorithm
+//  Read in the order of matrix A as M and N
+//  Read the order of matrix B as N1 and L
+//  If N1 = ! N, display multiplication is not possible
+//  Display error message and prompt to enter the new size
+//  Read in the elements of A matrix into an array
+//  Read in the elements of B matrix into an array
+//  Find C = A * B (Use proper loops)
+//  Display the matrix C
 
-int frequency(int a[], int n)
+#include<stdio.h>
+
+int main()
 {
-    int *ptr;
-    int cnt = 0;
-    ptr = a;
-    for (int i = 0; i < l; i++)
+    int M,N,N1,L,A[50][50],B[50][50],C[50][50];
+    printf("Enter the dimension of matrix A(rows,columns) :");\
+    scanf("%d,%d",&M,&N);
+
+    printf("Enter the dimension of matrix B(rows,columns) :");\
+    scanf("%d,%d",&N1,&L);
+    
+    if (N1 != N) 
     {
-        if (*(ptr + i) == a)
-        {
-            cnt++;
-        }
+        printf("Dimentional error, matrices can not be multiplied!!\n");
+        
     }
-    return cnt;
-}
-
-void sortArray(int a[], int length)
-{
-    int *p = NULL, temp;
-    p = &a[0];
-    for (int i = 0; i < length - 1; i++)
+    else
     {
-        for (int j = i + 1; j < length; j++)
+        // matrix A
+        printf("Enter Matrix A\n");
+        for (int i = 0;i < M;  i++)
         {
-            if (*(p + i) > *(p + j))
+        for (int j = 0;j < N;j++)
             {
-                temp = *(p + i);
-                *(p + i) = *(p + j);
-                *(p + j) = temp;
+            printf("Enter the element in %d row %d column :",i+1,j+1);
+            scanf("%d",&A[i][j]);
             }
         }
-    }
-}
-int search(int a[], int number, int n)
-{
-    int *p = NULL, temp;
-    p = &a[0];
-    int ans[50];
-    int j = 0;
-    for (int i = 0; i < n; i++)
-    {
-        if (number == a[i])
+        // matrix B
+        printf("Enter Matrix B\n");
+        for (int i = 0;i < N1;  i++)
         {
-            ans[j] = i;
-            j += 1;
+        for (int j = 0;j < L;j++)
+            {
+            printf("Enter the element in %d row %d column :",i+1,j+1);
+            scanf("%d",&B[i][j]);
+            }
         }
-    }
-    return ans;
-}
 
+        // multiplication
+        for (int i=0; i<M;i++)
+        {
+            for(int j=0; j<N1; j++)
+            {
+                for(int k=0; k<N; k++)
+                {
+                    C[i][j] += A[i][k] * B[k][j];
+                // printf("%d\t",C[i][j]);2,2
+
+                }   
+                printf("%d ",C[i][j])   ;
+                
+                }
+        }
+
+        //printing result
+        for(int i = 0;i < M;  i++)
+        {
+            for (int j = 0;j < L; j++)
+            {
+                printf("%d\t",A[i][j]);
+            }
+            printf("\n");
+        }
+        printf("\n");
+
+        for(int i = 0;i < M;  i++)
+        {
+            for (int j = 0;j < L; j++)
+            {
+                printf("%d\t",B[i][j]);
+            }
+            printf("\n");
+        }
+        printf("\n");
+        
+        for(int i = 0;i < M;  i++)
+        {
+            for (int j = 0;j < L; j++)
+            {
+                printf("%d\t",C[i][j]);
+            }
+            printf("\n");
+        }
+
+
+
+    }
+
+    return 0;
+}
